@@ -188,73 +188,87 @@ stroke="#fff" stroke-width="6" fill="none"/>
 
 <p id="daysCounter" style="margin-top:15px;"></p>
 
+  <img
+class="loveGif hidden"
+id="loveGif"
+src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eHVubTd0Mm9tbjB5YmEwNmtvZ2gyOTF0dnl0Zm9wYW8wNHE0cDI3MCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/gjHkRHSuHqu99y9Yjt/giphy.gif"
+alt="Love Gif">
+  
 </div>
 </div>
 
 <script>
-const metDate=new Date("2025-04-13");
+const metDate = new Date("2025-04-13");
 
-function moveNo(){
-const no=document.getElementById("no");
-no.style.left=Math.random()*(window.innerWidth-120)+"px";
-no.style.top=Math.random()*(window.innerHeight-120)+"px";
+function moveNo() {
+  const no = document.getElementById("no");
+  no.style.left = Math.random() * (window.innerWidth - 120) + "px";
+  no.style.top  = Math.random() * (window.innerHeight - 120) + "px";
 }
 
-function yesClicked(){
-document.getElementById("page1").style.display="none";
-document.getElementById("journeyPage").classList.remove("hidden");
-confetti();
-vibrate();
+function yesClicked() {
+  document.getElementById("page1").style.display = "none";
+  document.getElementById("journeyPage").classList.remove("hidden");
+  confetti();
+  vibrate();
 }
 
-function openProposal(){
-document.getElementById("proposal").style.display="flex";
-confetti();
-vibrate(true);
+function openProposal() {
+  document.getElementById("proposal").style.display = "flex";
+  confetti();
+  vibrate(true);
 }
 
-function proposalNo(){
-const no=document.getElementById("pNo");
-no.style.left=Math.random()*(window.innerWidth-120)+"px";
-no.style.top=Math.random()*(window.innerHeight-120)+"px";
+function proposalNo() {
+  const no = document.getElementById("pNo");
+  no.style.left = Math.random() * (window.innerWidth - 120) + "px";
+  no.style.top  = Math.random() * (window.innerHeight - 120) + "px";
 }
 
-function proposalYes(){
-document.getElementById("proposalResult").classList.remove("hidden");
+function proposalYes() {
 
-const today=new Date();
-const diffTime=Math.abs(today-metDate);
-const days=Math.floor(diffTime/(1000*60*60*24));
+  // ✅ hide YES/NO buttons after click
+  document.getElementById("pYes").style.display = "none";
+  document.getElementById("pNo").style.display = "none";
 
-document.getElementById("daysCounter").innerText=
-`It’s been ${days} beautiful days since the day we met ❤️`;
+  document.getElementById("proposalResult").classList.remove("hidden");
 
-document.getElementById("loveSong").play();
-confetti();
-vibrate(true);
+  const today = new Date();
+  const diffTime = Math.abs(today - metDate);
+  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+  document.getElementById("daysCounter").innerText =
+    `It’s been ${days} beautiful days since the day we met ❤️`;
+
+  document.getElementById("loveSong").play();
+  confetti();
+  vibrate(true);
 }
 
-function vibrate(long=false){
-if(navigator.vibrate){
-navigator.vibrate(long?[300,100,300]:200);
-}
+function vibrate(long = false) {
+  if (navigator.vibrate) {
+    navigator.vibrate(long ? [300, 100, 300] : 200);
+  }
 }
 
-function confetti(){
-const hearts=["❤️","💖","💘","💕"];
-for(let i=0;i<40;i++){
-const c=document.createElement("div");
-c.className="confetti";
-c.innerText=hearts[Math.floor(Math.random()*hearts.length)];
-c.style.left=Math.random()*100+"vw";
-c.style.top="-20px";
-c.style.fontSize=(18+Math.random()*25)+"px";
-c.style.animationDuration=(2+Math.random()*3)+"s";
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),5000);
-}
+function confetti() {
+  const hearts = ["❤️", "💖", "💘", "💕"];
+  for (let i = 0; i < 40; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.top = "-20px";
+    c.style.fontSize = (18 + Math.random() * 25) + "px";
+    c.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 5000);
+  }
 }
 </script>
 
+  
+  
+  
 </body>
 </html>
