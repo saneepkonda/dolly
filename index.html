@@ -104,6 +104,15 @@ ul{
   line-height:1.8em;
   font-size:clamp(1rem,4vw,1.2em);
 }
+  .heartbeat{
+  animation:beat 0.6s ease 3;
+}
+
+@keyframes beat{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+  100%{transform:scale(1);}
+}
 
 @media(max-width:600px){
   svg text{font-size:12px;}
