@@ -2,253 +2,259 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You Dolly💖</title>
 
 <style>
-  body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    font-family: 'Segoe UI', sans-serif;
-    color: #fff;
-    text-align: center;
-    overflow-x: hidden;
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  font-family:'Segoe UI',sans-serif;
+  color:#fff;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+h1{
+  margin-top:30px;
+  font-size:clamp(1.8rem,6vw,3em);
+  padding:0 10px;
+}
+
+p{
+  font-size:clamp(1rem,4vw,1.4em);
+  max-width:90%;
+  margin:15px auto;
+}
+
+button{
+  padding:14px 28px;
+  font-size:clamp(1rem,4vw,1.2em);
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  margin:10px;
+}
+
+#yes,#pYes{
+  background:white;
+  color:#ff4f81;
+}
+
+#no,#pNo{
+  background:#ff4f81;
+  color:white;
+  position:absolute;
+}
+
+.hidden{display:none;}
+
+.journey{
+  max-width:900px;
+  margin:40px auto;
+  padding:0 10px;
+}
+
+svg{width:100%;}
+
+.path{
+  stroke-dasharray:1500;
+  stroke-dashoffset:1500;
+  animation:draw 4s forwards;
+}
+
+@keyframes draw{
+  to{stroke-dashoffset:0;}
+}
+
+circle{cursor:pointer;}
+
+/* ❤️ Falling Hearts */
+.confetti{
+  position:fixed;
+  font-size:22px;
+  animation:fall linear forwards;
+  user-select:none;
+  pointer-events:none;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
   }
+}
 
-  h1 {
-    margin-top: 40px;
-    font-size: 3em;
-  }
+#proposal{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:20;
+  padding:20px;
+}
 
-  p {
-    font-size: 1.4em;
-    max-width: 800px;
-    margin: 20px auto;
-  }
+ul{
+  list-style:none;
+  padding:0;
+  line-height:1.8em;
+  font-size:clamp(1rem,4vw,1.2em);
+}
 
-  button {
-    padding: 15px 35px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin: 10px;
-  }
-
-  #yes, #pYes {
-    background: white;
-    color: #ff4f81;
-  }
-
-  #no, #pNo {
-    background: #ff4f81;
-    color: white;
-    position: absolute;
-  }
-
-  .hidden { display: none; }
-
-  /* Journey */
-  .journey {
-    max-width: 900px;
-    margin: 40px auto;
-  }
-
-  svg { width: 100%; }
-
-  .path {
-    stroke-dasharray: 1500;
-    stroke-dashoffset: 1500;
-    animation: draw 4s forwards;
-  }
-
-  @keyframes draw {
-    to { stroke-dashoffset: 0; }
-  }
-
-  circle { cursor: pointer; }
-
-  /* Confetti */
-  .confetti {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    animation: fall 3s linear forwards;
-  }
-
-  @keyframes fall {
-    to { transform: translateY(100vh) rotate(360deg); }
-  }
-
-  /* Proposal */
-  #proposal {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
-    padding: 20px;
-  }
+@media(max-width:600px){
+  svg text{font-size:12px;}
+}
 </style>
 </head>
 
 <body>
 
-<!-- AUDIO -->
 <audio id="loveSong">
-  <source src="song.mp3" type="audio/mpeg">
+<source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- PAGE 1 --> 
 <div id="page1">
-  <h1>Hey My Love Dolly💕</h1>
-  <p>I made this little world just for you…</p>
-  <p>If you have dare to say no try to click NO😝 </p>
+<h1>Hey My Love Dolly💕</h1>
+<p>I made this little world just for you…</p>
+<p>If you have dare to say no try to click NO😝 </p>
 
-  <h1>Will you be my Valentine? 🌸</h1>
-  <button id="yes" onclick="yesClicked()">YES 💖</button>
-  <button id="no" onmouseover="moveNo()">NO 😝</button>
+<h1>Will you be my Valentine? 🌸</h1>
+<button id="yes" onclick="yesClicked()">YES 💖</button>
+<button id="no" onmouseover="moveNo()">NO 😝</button>
 </div>
 
-<!-- JOURNEY PAGE -->
 <div id="journeyPage" class="hidden">
-  <h1>Our Journey Together 🌍</h1>
+<h1>Our Journey Together 🌍</h1>
 
-  <p>
-    From Farm house to beaches to temples to mountains to adventures,  
-    parties to peaceful moments — every place mattered because it was with you ❤️
-  </p>
+<p>
+From Farm house to beaches to temples to mountains to adventures,
+parties to peaceful moments — every place mattered because it was with you ❤️
+</p>
 
-  <div class="journey">
-    <svg viewBox="0 0 1200 650">
-      <path class="path"
-        d="M100 550 Q250 420 400 500 Q550 600 650 420 Q750 250 900 300 Q1050 350 1100 150"
-        stroke="#fff" stroke-width="6" fill="none"/>
+<div class="journey">
+<svg viewBox="0 0 1200 650">
+<path class="path"
+d="M100 550 Q250 420 400 500 Q550 600 650 420 Q750 250 900 300 Q1050 350 1100 150"
+stroke="#fff" stroke-width="6" fill="none"/>
 
-      <circle cx="100" cy="550" r="10" fill="#fff" onclick="alert('Temples 🙏')" />
-      <text x="40" y="600" fill="white">Temples</text>
+<circle cx="100" cy="550" r="10" fill="#fff" onclick="alert('Temples 🙏')" />
+<text x="40" y="600" fill="white">Temples</text>
 
-      <circle cx="250" cy="450" r="10" fill="#fff" onclick="alert('Landscapes 🌿')" />
-      <text x="190" y="420" fill="white">Landscapes</text>
+<circle cx="250" cy="450" r="10" fill="#fff" onclick="alert('Landscapes 🌿')" />
+<text x="190" y="420" fill="white">Landscapes</text>
 
-      <circle cx="400" cy="500" r="10" fill="#fff" onclick="alert('Mountains 🏔️')" />
-      <text x="340" y="540" fill="white">Mountains</text>
+<circle cx="400" cy="500" r="10" fill="#fff" onclick="alert('Mountains 🏔️')" />
+<text x="340" y="540" fill="white">Mountains</text>
 
-      <circle cx="550" cy="580" r="10" fill="#fff" onclick="alert('Beaches 🌊')" />
-      <text x="500" y="630" fill="white">Beaches</text>
+<circle cx="550" cy="580" r="10" fill="#fff" onclick="alert('Beaches 🌊')" />
+<text x="500" y="630" fill="white">Beaches</text>
 
-      <circle cx="650" cy="420" r="10" fill="#fff" onclick="alert('Parties 🎉')" />
-      <text x="610" y="380" fill="white">Parties</text>
+<circle cx="650" cy="420" r="10" fill="#fff" onclick="alert('Parties 🎉')" />
+<text x="610" y="380" fill="white">Parties</text>
 
-      <circle cx="750" cy="300" r="10" fill="#fff" onclick="alert('Adventure 🧗‍♂️')" />
-      <text x="700" y="260" fill="white">Adventure</text>
+<circle cx="750" cy="300" r="10" fill="#fff" onclick="alert('Adventure 🧗‍♂️')" />
+<text x="700" y="260" fill="white">Adventure</text>
 
-      <circle cx="1100" cy="150" r="14" fill="#ff4f81" onclick="openProposal()" />
-      <text x="1020" y="120" fill="white">Forever ♾️</text>
-    </svg>
-  </div>
-
-  <p>💍 When you’re ready… click <b>Forever</b></p>
+<circle cx="1100" cy="150" r="14" fill="#ff4f81" onclick="openProposal()" />
+<text x="1020" y="120" fill="white">Forever ♾️</text>
+</svg>
 </div>
 
-<!-- PROPOSAL -->
+<p>💍 When you’re ready… click <b>Forever</b></p>
+</div>
+
 <div id="proposal">
-  <h1>Will You Marry Me Dolly? 💍❤️</h1>
-  <p>
-    From all these places and memories,  
-    I choose one forever — and I choose you.
-  </p>
+<h1>Will You Marry Me Dolly? 💍❤️</h1>
 
-  <button id="pYes" onclick="proposalYes()">YES 💖</button>
-  <button id="pNo" onmouseover="proposalNo()">NO 😝</button>
+<button id="pYes" onclick="proposalYes()">YES 💖</button>
+<button id="pNo" onmouseover="proposalNo()">NO 😝</button>
 
-  <p id="proposalResult" class="hidden">
-    You just said YES to forever 🥹❤️
-    </p>
-    <p id="daysCounter" class="hidden" style="font-size:1.4em; margin-top:20px;">
+<div id="proposalResult" class="hidden">
 
-  </p>
+<h2>You just said YES to forever 🥹❤️</h2>
+
+<ul>
+<li>❤️ You are my safe place and my biggest adventure.</li>
+<li>❤️ Every road feels right when I walk it with you.</li>
+<li>❤️ You turned ordinary days into beautiful memories.</li>
+<li>❤️ I didn’t just find love — I found my forever person.</li>
+<li>❤️ Your smile is my favorite destination.</li>
+<li>❤️ With you, forever feels easy.</li>
+</ul>
+
+<p id="daysCounter" style="margin-top:15px;"></p>
+
+</div>
 </div>
 
 <script>
-  const metDate = new Date("2025-04-13"); // CHANGE this date
+const metDate=new Date("2025-04-13");
 
-  function moveNo() {
-    const no = document.getElementById("no");
-    no.style.left = Math.random() * (window.innerWidth - 120) + "px";
-    no.style.top  = Math.random() * (window.innerHeight - 120) + "px";
-  }
+function moveNo(){
+const no=document.getElementById("no");
+no.style.left=Math.random()*(window.innerWidth-120)+"px";
+no.style.top=Math.random()*(window.innerHeight-120)+"px";
+}
 
-  function yesClicked() {
-    document.getElementById("page1").style.display = "none";
-    document.getElementById("journeyPage").classList.remove("hidden");
-    confetti();
-    vibrate();
-  }
+function yesClicked(){
+document.getElementById("page1").style.display="none";
+document.getElementById("journeyPage").classList.remove("hidden");
+confetti();
+vibrate();
+}
 
-  function openProposal() {
-    document.getElementById("proposal").style.display = "flex";
-    confetti();
-    vibrate(true);
-  }
+function openProposal(){
+document.getElementById("proposal").style.display="flex";
+confetti();
+vibrate(true);
+}
 
-  function proposalNo() {
-    const no = document.getElementById("pNo");
-    no.style.left = Math.random() * (window.innerWidth - 120) + "px";
-    no.style.top  = Math.random() * (window.innerHeight - 120) + "px";
-  }
+function proposalNo(){
+const no=document.getElementById("pNo");
+no.style.left=Math.random()*(window.innerWidth-120)+"px";
+no.style.top=Math.random()*(window.innerHeight-120)+"px";
+}
 
-  function proposalYes() {
-  // Show success message
-  document.getElementById("proposalResult").classList.remove("hidden");
+function proposalYes(){
+document.getElementById("proposalResult").classList.remove("hidden");
 
-  // Calculate days since met
-  const today = new Date();
-  const diffTime = Math.abs(today - metDate);
-  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+const today=new Date();
+const diffTime=Math.abs(today-metDate);
+const days=Math.floor(diffTime/(1000*60*60*24));
 
-  const counter = document.getElementById("daysCounter");
-  counter.innerText =
-    `It’s been ${days} beautiful days since the day we met ❤️`;
-  counter.classList.remove("hidden");
+document.getElementById("daysCounter").innerText=
+`It’s been ${days} beautiful days since the day we met ❤️`;
 
-  // Play song
-  document.getElementById("loveSong").play();
+document.getElementById("loveSong").play();
+confetti();
+vibrate(true);
+}
 
-  // Celebrate
-  confetti();
-  vibrate(true);
+function vibrate(long=false){
+if(navigator.vibrate){
+navigator.vibrate(long?[300,100,300]:200);
+}
+}
 
-//   // WhatsApp redirect
-//   setTimeout(() => {
-//     window.location.href =
-//       "https://wa.me/918008806996?text=YES! It’s been " + days +
-//       " days since we met 💍❤️";
-//   }, 5000);
-// }
-
-
-  function vibrate(long=false) {
-    if (navigator.vibrate) {
-      navigator.vibrate(long ? [300,100,300] : 200);
-    }
-  }
-
-  function confetti() {
-    for (let i = 0; i < 80; i++) {
-      const c = document.createElement("div");
-      c.className = "confetti";
-      c.style.left = Math.random() * 100 + "vw";
-      c.style.top = "-10px";
-      c.style.background =
-        ["#fff","#ff4f81","#ffd1dc"][Math.floor(Math.random()*3)];
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 3000);
-    }
-  }
+function confetti(){
+const hearts=["❤️","💖","💘","💕"];
+for(let i=0;i<40;i++){
+const c=document.createElement("div");
+c.className="confetti";
+c.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+c.style.left=Math.random()*100+"vw";
+c.style.top="-20px";
+c.style.fontSize=(18+Math.random()*25)+"px";
+c.style.animationDuration=(2+Math.random()*3)+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),5000);
+}
+}
 </script>
+
 </body>
 </html>
