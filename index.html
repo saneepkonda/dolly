@@ -236,7 +236,7 @@ function proposalNo() {
 
 function proposalYes() {
 
-  // ✅ hide YES/NO buttons after click
+  // Hide buttons
   document.getElementById("pYes").style.display = "none";
   document.getElementById("pNo").style.display = "none";
 
@@ -252,12 +252,12 @@ function proposalYes() {
   document.getElementById("loveSong").play();
   confetti();
   vibrate(true);
-}
-  // WhatsApp redirect
+
+  // ✅ WhatsApp redirect AFTER calculating days
   setTimeout(() => {
     window.location.href =
       "https://wa.me/918008806996?text=YES! It’s been " + days +
-      " days since we met 💍❤️";
+      " beautiful days since we met 💍❤️";
   }, 5000);
 }
 
@@ -282,6 +282,7 @@ function confetti() {
   }
 }
 </script>
+
 
   
   
