@@ -253,6 +253,13 @@ function proposalYes() {
   confetti();
   vibrate(true);
 }
+  // WhatsApp redirect
+  setTimeout(() => {
+    window.location.href =
+      "https://wa.me/918008806996?text=YES! It’s been " + days +
+      " days since we met 💍❤️";
+  }, 5000);
+}
 
 function vibrate(long = false) {
   if (navigator.vibrate) {
