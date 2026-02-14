@@ -253,12 +253,6 @@ function proposalYes() {
   confetti();
   vibrate(true);
 
-  // ✅ WhatsApp redirect AFTER calculating days
-  setTimeout(() => {
-    window.location.href =
-      "https://wa.me/918008806996?text=YES! It’s been " + days +
-      " beautiful days since we met 💍❤️";
-  }, 5000);
 }
 
 function vibrate(long = false) {
